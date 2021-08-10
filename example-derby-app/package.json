@@ -1,0 +1,17 @@
+{
+  "name": "example-derby-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "derby": "^1.0.0",
+    "derby-debug": "^0.1.0",
+    "derby-starter": "^0.4.8"
+  }
+}

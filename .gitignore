@@ -14,4 +14,5 @@ webpack-dev-server/node_modules/*
 listing5_1/node_modules/*
 koa-router-example/node_modules/*
 listing5_4/node_modules/*
+example-derby-app/node_modules/*
 
