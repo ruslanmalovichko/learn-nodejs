@@ -1,5 +1,5 @@
 function setup(format) {
-  console.log(format); // Slava, why once?
+  console.log(format); // Call once because call connect().use(setup(':method :url')) on initial app
   const regexp = /:(\w+)/g;
   return function createLogger(req, res, next) {
     const str = format.replace(regexp, (match, property) => {
@@ -9,7 +9,7 @@ function setup(format) {
       return req[property];
     });
     console.log('str start');
-    console.log(str); // Slava, why twice?
+    console.log(str); // Call twice because not call on initial. Call on two routes: GET / and GET /favicon.ico
     console.log('str end');
     next();
   }
