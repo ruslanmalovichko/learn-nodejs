@@ -19,7 +19,7 @@ function getField(req, field) { // field: (2) ["entry", "title"]
 exports.required = (field) => {
   field = parseField(field); // field: "entry[title]" -> field: ["entry", "title"]
   return (req, res, next) => {
-    if (getField(req, field)) { // Check 
+    if (getField(req, field)) {
       next();
     }
     else {
