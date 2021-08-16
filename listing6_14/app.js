@@ -26,16 +26,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', users); // send users to /users route
 
-app.get('/', entries.list);
-app.get('/post', entries.form);
+app.get('/', entries.list); // call routes/entries.js, exports.list
+app.get('/post', entries.form); // call routes/entries.js, exports.form
+
 app.post('/post',
-  validate.required('entry[title]'),
-  validate.lengthAbove('entry[title]', 4),
+  validate.required('entry[title]'), // call middleware/validate.js, exports.required, send entry[title]
+  validate.lengthAbove('entry[title]', 4), // call middleware/validate.js, exports.lengthAbove, send entry[title] and 4
+
   entries.submit);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  var err = new Error('Not Found');
+  var err = new Error('Not Found'); // Discuss with Slava
   err.status = 404;
   next(err);
 });
