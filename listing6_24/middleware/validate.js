@@ -23,8 +23,8 @@ exports.required = (field) => {
       next();
     }
     else {
-      // res.error(`${field.join(' ')} is required`);
-      throw new Error(`${field.join(' ')} is required`); // entry title is required
+      res.error(`${field.join(' ')} is required`);
+      // throw new Error(`${field.join(' ')} is required`); // entry title is required
       // res.status(500).send(`${field.join(' ')} is required`);
       // res.status(404).send(`${field.join(' ')} is required`);
       // res.status(500);
@@ -40,8 +40,8 @@ exports.lengthAbove = (field, len) => {
       next();
     } else {
       const fields = field.join(' ');
-      // res.error(`${fields} must have more than ${len} characters`);
-      throw new Error(`${fields} must have more than ${len} characters`); // entry title must have more than 4 characters
+      res.error(`${fields} must have more than ${len} characters`);
+      // throw new Error(`${fields} must have more than ${len} characters`); // entry title must have more than 4 characters
       // res.status(500).send(`${fields} must have more than ${len} characters`); // entry title must have more than 4 characters
       // res.status(404).send(`${fields} must have more than ${len} characters`); // entry title must have more than 4 characters
       // res.status(500);
