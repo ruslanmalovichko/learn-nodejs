@@ -9,6 +9,7 @@ const login = require('./routes/login');
 const register = require('./routes/register');
 const session = require('express-session');
 const users = require('./routes/users');
+const user = require('./middleware/user');
 const validate = require('./middleware/validate');
 
 const app = express();
@@ -17,8 +18,6 @@ const app = express();
 app.set('views', path.join(__dirname, 'views')); // Use folder views for view code
 app.set('view engine', 'ejs');
 app.set('json spaces', 2); // beautify json
-
-app.locals.user = {}; // add empty user object
 
 // uncomment after placing your favicon in /public
 app.use(logger('dev'));
@@ -32,6 +31,7 @@ app.use(session({ // Connect express-session for error messages
 }));
 app.use(messages); // Connect middleware/messages.js
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(user); // Connect middleware/user.js
 
 app.use('/users', users); // send users to /users route
 
