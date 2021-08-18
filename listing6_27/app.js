@@ -5,6 +5,7 @@ const express = require('express');
 const logger = require('morgan');
 const messages = require('./middleware/messages');
 const path = require('path');
+const login = require('./routes/login');
 const register = require('./routes/register');
 const session = require('express-session');
 const users = require('./routes/users');
@@ -42,9 +43,13 @@ app.post('/post',
   validate.lengthAbove('entry[title]', 4), // call middleware/validate.js, exports.lengthAbove, send entry[title] and 4
 
   entries.submit);
+
+app.get('/login', login.form); // Connect routes/login.js, exports.form
+app.post('/login', login.submit); // Connect routes/login.js, exports.submit
+
+app.get('/logout', login.logout); // Connect routes/login.js, exports.logout.
 app.get('/register', register.form); // Connect routes/register.js, exports.form
 app.post('/register', register.submit); // Connect routes/register.js, exports.submit
-
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   var err = new Error('Not Found'); // If the page does not exits
