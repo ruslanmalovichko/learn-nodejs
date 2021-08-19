@@ -20,7 +20,6 @@ module.exports = (cb, perpage) => {
     ) - 1;
     cb((err, total) => {
       if (err) return next(err);
-      debugger;
       req.page = res.locals.page = {
         number: page,
         perpage: perpage,
