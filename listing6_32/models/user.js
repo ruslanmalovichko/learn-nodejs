@@ -52,6 +52,13 @@ class User {
     });
   }
 
+  toJSON() { // we cut data, send id and name only
+    return {
+      id: this.id,
+      name: this.name
+    };
+  }
+
   static getByName(name, cb) {
     User.getId(name, (err, id) => { // Find id of user by user name
       if (err) return cb(err);
@@ -76,7 +83,7 @@ class User {
       if (!user.id) return cb();
       bcrypt.hash(pass, user.salt, (err, hash) => {
         if (err) return cb(err);
-        if (hash == user.pass) return cb(null, user); // Check user password and send user object if OK
+        if (hash === user.pass) return cb(null, user); // Check user password and send user object if OK
         cb();
       });
     });

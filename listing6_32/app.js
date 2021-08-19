@@ -1,11 +1,14 @@
+const api = require('./routes/api');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const entries = require('./routes/entries');
+const Entry = require('./models/entry');
 const express = require('express');
 const logger = require('morgan');
 const messages = require('./middleware/messages');
 const path = require('path');
 const login = require('./routes/login');
+const page = require('./middleware/page');
 const register = require('./routes/register');
 const session = require('express-session');
 const users = require('./routes/users');
@@ -31,6 +34,14 @@ app.use(session({ // Connect express-session for error messages
 }));
 app.use(messages); // Connect middleware/messages.js
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/api', api.auth); // call routes/api.js, exports.auth. Call at all api routs, for example /api/entry
+app.get('/api/user/:id', api.user); // call routes/api.js, exports.user
+// app.get('/api/entries/:page?', api.entries);
+// app.post('/api/entry', api.add);
+app.post('/api/entry', entries.submit); // call routes/entries.js, exports.submit
+app.get('/api/entries/:page?', page(Entry.count, 11), api.entries); // call middleware/page.js, send Entry.count function and 11. Call routes/api.js, exports.entries
+
 app.use(user); // Connect middleware/user.js
 
 app.use('/users', users); // send users to /users route
