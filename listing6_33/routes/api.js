@@ -1,6 +1,5 @@
 'use strict';
 const auth = require('basic-auth');
-const express = require('express');
 const User = require('../models/user');
 const Entry = require('../models/entry');
 
@@ -25,7 +24,14 @@ exports.entries = (req, res, next) => {
   const page = req.page;
   Entry.getRange(page.from, page.to, (err, entries) => { // Get entries
     if (err) return next(err);
-    res.json(entries); // return entries as json data
+    res.format({
+      'application/json': () => {
+        res.send(entries); // return entries as json data
+      },
+      'application/xml': () => {
+        res.render('entries/xml', { entries: entries }); // return entries as xml data
+      }
+    });
   });
 };
 
