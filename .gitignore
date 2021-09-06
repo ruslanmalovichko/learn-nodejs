@@ -55,4 +55,5 @@ memdb/node_modules/*
 vows-todo/node_modules/*
 chai-examples/node_modules/*
 tips/node_modules/*
+sinon-js-examples/node_modules/*
 
