@@ -10,7 +10,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@wdio/local-runner": "^7.12.1",
     "@wdio/mocha-framework": "^7.12.0",
+    "@wdio/spec-reporter": "^7.10.1",
+    "chromedriver": "^93.0.1",
+    "wdio-chromedriver-service": "^7.2.0",
     "webdriverio": "^7.12.0"
   },
   "dependencies": {
