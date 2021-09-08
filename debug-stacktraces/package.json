@@ -1,0 +1,18 @@
+{
+  "name": "debug-stacktraces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clarify": "^2.1.0",
+    "mocha": "^9.1.1",
+    "source-map-support": "^0.5.19",
+    "trace": "^3.1.1"
+  }
+}

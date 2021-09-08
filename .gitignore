@@ -58,4 +58,5 @@ tips/node_modules/*
 sinon-js-examples/node_modules/*
 selenium/node_modules/*
 debug-example/node_modules/*
+debug-stacktraces/node_modules/*
 
