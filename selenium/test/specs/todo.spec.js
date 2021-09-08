@@ -1,19 +1,10 @@
-'use strict';
 const assert = require('assert');
-const webdriverio = require('webdriverio');
-
 describe('todo tests', () => {
-  let client;
-
-  before(() => {
-    client = webdriverio.remote();
-    return client.init();
-  });
-
-  it('todo list test', () => {
-    return client
-      .url('/')
-      .getTitle()
-        .then(title => assert.equal(title, 'My to-do list'));
+  it('todo list test', async () => {
+    await browser.url('/');
+    console.log('Ruslan 1');
+    await browser.getTitle().then(title => assert.equal(title, 'My to-do list'));
+    console.log('Ruslan 2');
   });
 });
+
