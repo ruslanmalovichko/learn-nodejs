@@ -1,0 +1,10 @@
+/mnt/data/nodejs-projects/learn-book/learn-nodejs/listing11-2/index.js:42
+    if (err) throw err;
+             ^
+
+[Error: ENOENT: no such file or directory, open 'invalid.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'invalid.json'
+}
