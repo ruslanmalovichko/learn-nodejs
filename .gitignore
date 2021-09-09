@@ -61,4 +61,5 @@ debug-example/node_modules/*
 debug-stacktraces/node_modules/*
 listing11-1/node_modules/*
 listing11-2/node_modules/*
+snippets/uglify-example/node_modules/*
 
