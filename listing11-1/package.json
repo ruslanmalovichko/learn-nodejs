@@ -1,0 +1,16 @@
+{
+  "name": "listing11-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js -f test.json"
+  },
+  "keywords": [],
+  "author": "Bradley Meck",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^17.1.1"
+  }
+}
+
