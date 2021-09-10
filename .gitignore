@@ -63,4 +63,5 @@ listing11-1/node_modules/*
 listing11-2/node_modules/*
 snippets/uglify-example/node_modules/*
 test-electron/electron-quick-start/node_modules/*
+test-electron/my-electron-app/node_modules/*
 
